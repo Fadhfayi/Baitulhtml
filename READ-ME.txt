@@ -1,6 +1,6 @@
-  =>  Template Name    : FarmFresh - Organic Farm Website Template
+  =>  Template Name    : BaitulQur'an - Organic Baitul Website Template
 
-  =>  Template Link    : https://htmlcodex.com/organic-farm-website-template
+  =>  Template Link    : https://htmlcodex.com/organic-Baitul-website-template
 
   =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
 
