@@ -60,41 +60,41 @@
                 <div >
                     <img class="w-100"  src="img/carousel-1.webp" style="width:100%" alt="Image">
                     <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
-                        <div class="text-start p-5" style="max-width: 900px;">
+                        <div class="text-start p-5" style="max-width: 600px;">
                     <div class="container">
+                    <table>
                     <h3 class="m-0 text-primary"><span class="text-secondary">Masukan</span>Data</h3>
-                    <br>
-                    <br>
+                    <form action="" method="POST">
         <tr>
             <td>Nama Lengkap<br></td>
-            <td><input text-align="left" type="text" name="Nama" value=""></td>
+            <td><input type="text" name="Nama" value=""></td>
         </tr>
-        <br>
-        <br>
+       <br>
+       <br>
         <tr>
             <td>Alamat Rumah<br></td>
             <td><input type="text" name="Alamat" value=""></td>
         </tr>
-        <br>
-        <br>
+       
+       
         <tr>
             <td>Nomor Telepon<br></td>
             <td><input type="text" name="Nomor" value=""></td>
         </tr>
-        <br>
-        <br>
+       
+       
         <tr>
             <td>Tanggal Lahir<br></td>
             <td><input type="date" name="Lahir" value=""></td>
         </tr>
-        <br>
-        <br>
+       
+       
         <tr>
             <td>Motivasi masuk ke baitul Qur'an<br></td>
             <td><input type="text" name="motivasi" value="" style="height:100px; width:250px" ></td>
         </tr>
-        <br>
-        <br>
+       
+       
         <tr>
             <td></td>
             <td><input type="submit" value="simpan" name="proses"></td>
@@ -118,7 +118,7 @@ include "koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($koneksi," INSERT INTO pendaftaran SET 
-Nama='$_POST[nama]',
+Nama='$_POST[Nama]',
 Alamat='$_POST[Alamat]',
 Nomor='$_POST[Nomor]',
 Lahir='$_POST[Lahir]',
