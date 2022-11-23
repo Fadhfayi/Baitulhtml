@@ -112,11 +112,12 @@
     <!-- Topbar End -->
 
     <!-- script php mysql untuk menyimpan data (insert data ke database) -->
+
     <?php
 include "koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($koneksi," INSERT into pendaftaran set 
+mysqli_query($koneksi,"INSERT into pendaftaran set 
 nama='$_POST[Nama]',
 Alamat='$_POST[Alamat]',
 nomor='$_POST[Nomor]',
