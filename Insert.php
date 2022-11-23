@@ -113,14 +113,14 @@
 
     <!-- script php mysql untuk menyimpan data (insert data ke database) -->
 
-    <?php
+<?php
 include "koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($koneksi,"INSERT into pendaftaran set 
-nama='$_POST[Nama]',
+mysqli_query($koneksi," INSERT INTO pendaftaran SET 
+Nama='$_POST[nama]',
 Alamat='$_POST[Alamat]',
-nomor='$_POST[Nomor]',
+Nomor='$_POST[Nomor]',
 Lahir='$_POST[Lahir]',
 motivasi='$_POST[motivasi]'"); 
 
