@@ -64,52 +64,63 @@
                     <div class="container">
                     <table>
                     <h3 class="m-0 text-primary"><span class="text-secondary">Masukan</span>Data</h3>
+                    <br>
                     <form action="" method="POST">
-        <tr>
-            <td>Nama Lengkap<br></td>
-            <td><input type="text" name="Nama" value=""></td>
-        </tr>
-       <br>
-       <br>
-        <tr>
-            <td>Alamat Rumah<br></td>
-            <td><input type="text" name="Alamat" value=""></td>
-        </tr>
-       
-       
-        <tr>
-            <td>Nomor Telepon<br></td>
-            <td><input type="text" name="Nomor" value=""></td>
-        </tr>
-       
-       
-        <tr>
-            <td>Tanggal Lahir<br></td>
-            <td><input type="date" name="Lahir" value=""></td>
-        </tr>
-       
-       
-        <tr>
-            <td>Motivasi masuk ke baitul Qur'an<br></td>
-            <td><input type="text" name="motivasi" value="" style="height:100px; width:250px" ></td>
-        </tr>
-       
-       
-        <tr>
-            <td></td>
-            <td><input type="submit" value="simpan" name="proses"></td>
-        </tr>
-</div>
-    </table>
-</form>
-                        
+                    <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Nama Depan</label>
+              <input type="text" class="form-control" Name="NamaDepan" placeholder="Budi" value="" required="">
+              <div class="invalid-feedback">
+                Nama Depan Harus Diisi.
               </div>
-                    </div>
-                </div>
-        
             </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" Name="NamaBelakang" placeholder="Nurhadi" value="" required="">
+              <div class="invalid-feedback">
+              Nama Belakang Harus Diisi.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">ALamat</label>
+              <input type="text" class="form-control" name="Alamat" placeholder="Gg.Melon Sukoharjo" required="">
+              <div class="invalid-feedback">
+               Alamat Harus Diisi.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="Number" class="form-label">Nomor Telepon</label>
+              <input type="text" class="form-control" Name="Nomor" placeholder="0812345678" value="" required="">
+              <div class="invalid-feedback">
+              Nomor Telepon Harus Diisi.
+              </div>
+            </div>
+
+            <div class="col-sm-6 ">
+              <label for="birth" class="form-label">Tanggal Lahir</label>
+              <input type="date" class="form-control" Name="Lahir" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+              Tanggal Lahir Harus Diisi.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="Motivation" class="form-label">Motivasi</label>
+              <textarea type="text" class="form-control" name="motivasi" placeholder="aku ingin jadi ustad" required="">
+</textarea>
+<div class="col-sm-10">
+      <button type="submit" class="btn btn-primary" name="proses">KIRIM</button>
     </div>
-    <!-- Topbar End -->
+                <div class="invalid-feedback">
+               Motivasi Harus Diisi.
+              </div>
+            </div>
+          <br>
+          <br>
+</div>
 
     <!-- script php mysql untuk menyimpan data (insert data ke database) -->
 
@@ -118,16 +129,19 @@ include "koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($koneksi," INSERT INTO pendaftaran SET 
-Nama='$_POST[Nama]',
+NamaDepan='$_POST[NamaDepan]',
+NamaBelakang='$_POST[NamaBelakang]',
 Alamat='$_POST[Alamat]',
 Nomor='$_POST[Nomor]',
 Lahir='$_POST[Lahir]',
 motivasi='$_POST[motivasi]'"); 
 
-echo "Data barang baru telah tersimpan";
+echo "Data pendaftartelah tersimpan";
 echo "<meta http-equiv=refresh content=1;URL='index.html'>";}
 
 ?>
+</body>
+<br>
  <div class="container-fluid bg-dark text-white py-4">
         <div class="container text-center">
             <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Baitul Qur'an</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://www.instagram.com/fadhfayi.athallah/?hl=id">Fadhfayi Athallah</a></p>
@@ -137,5 +151,5 @@ echo "<meta http-equiv=refresh content=1;URL='index.html'>";}
      <a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-</body>
+
 </html>
