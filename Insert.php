@@ -69,7 +69,7 @@
                     <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Nama Depan</label>
-              <input type="text" class="form-control" Name="NamaDepan" placeholder="Budi" value="" required="">
+              <input type="text" class="form-control" Name="NamaDepan" placeholder="Budi" value="" required="" style="color:black;">
               <div class="invalid-feedback">
                 Nama Depan Harus Diisi.
               </div>
@@ -77,7 +77,7 @@
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" Name="NamaBelakang" placeholder="Nurhadi" value="" required="">
+              <input type="text" class="form-control" Name="NamaBelakang" placeholder="Nurhadi" value="" required="" style="color:black;">
               <div class="invalid-feedback">
               Nama Belakang Harus Diisi.
               </div>
@@ -85,7 +85,7 @@
 
             <div class="col-12">
               <label for="address" class="form-label">ALamat</label>
-              <input type="text" class="form-control" name="Alamat" placeholder="Gg.Melon Sukoharjo" required="">
+              <input type="text" class="form-control" name="Alamat" placeholder="Gg.Melon Sukoharjo" required="" style="color:black;">
               <div class="invalid-feedback">
                Alamat Harus Diisi.
               </div>
@@ -93,7 +93,7 @@
 
             <div class="col-sm-6">
               <label for="Number" class="form-label">Nomor Telepon</label>
-              <input type="text" class="form-control" Name="Nomor" placeholder="0812345678" value="" required="">
+              <input type="text" class="form-control" Name="Nomor" placeholder="0812345678" value="" required="" style="color:black;">
               <div class="invalid-feedback">
               Nomor Telepon Harus Diisi.
               </div>
@@ -101,7 +101,7 @@
 
             <div class="col-sm-6 ">
               <label for="birth" class="form-label">Tanggal Lahir</label>
-              <input type="date" class="form-control" Name="Lahir" placeholder="" value="" required="">
+              <input type="date" class="form-control" Name="Lahir" placeholder="" value="" required="" style="color:black;">
               <div class="invalid-feedback">
               Tanggal Lahir Harus Diisi.
               </div>
@@ -109,7 +109,7 @@
 
             <div class="col-12">
               <label for="Motivation" class="form-label">Motivasi</label>
-              <textarea type="text" class="form-control" name="motivasi" placeholder="aku ingin jadi ustad" required="">
+              <textarea type="text" class="form-control" name="motivasi" placeholder="aku ingin jadi ustad" required="" style="color:black;">
 </textarea>
 <div class="col-sm-10">
       <button type="submit" class="btn btn-primary" name="proses">KIRIM</button>
