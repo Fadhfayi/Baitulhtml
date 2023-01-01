@@ -125,188 +125,194 @@
                       </div>
                 </table>
 </body>
+<script>
+  $(document).ready(() => {
 
+// Menampilkan Table Saat Awal Reload
+showTable();
+  function showTable() {
+        const $showData = $('#show-data');
 
+        $showData.text('Loading the JSON file.');
 
+        // Ambil Data JSON
+        $.getJSON('json.php', (respon) => {
+            // console.log(respon.code);
+            // console.log(respon.status);
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    // hide messages 
-    // $("#error").hide();
-    // $("#show_message").hide();
-    // on submit...
-    $('#form').submit(function (e) {
-      e.preventDefault();
-      $("#error").hide();
-      //name required
-      var NamaDepan = $("#NamaDepan").val();
-      if (NamaDepan == "") {
-        $("#error").fadeIn().text("Name required.");
-        $("#NamaDepan").focus();
-        return false;
-      }
+            // Mengatur Ulang Format Dari JSON Menjadi HTML
+            const head = `<br><table id="tabelnya" class="table table-bordered ">`
+            const thead = `<thead><tr><th>Nama</th><th>Alamat</th><th>Nomor</th><th>Tanggal Lahir</th></th><th>Motivasi</th></tr></thead><tbody>`
+            const markup = respon
+                .map(item => `
+            <tr data-id="${item.id}">
+          <td>${item.id}. ${item.NamaDepan} ${item.NamaBelakang}</td>
+          <td>${item.Alamat}</td>
+          <td>${item.Nomor}</td>
+          <td>${item.Lahir}</td>
+          <td>${item.Motivasi}</td>
+         
+          <td>
+                <button class="btn btn-danger hapus" id="hapus" data-id="${item.id}">HAPUS</button>
+          </td>
+            </tr>
+            `)
+                .join('');
+            const footer = `</tbody></table>`
 
-      var NamaBelakang = $("#NamaBelakang").val();
-      if (NamaBelakang == "") {
-        $("#error").fadeIn().text("Name required.");
-        $("#NamaBelakang").focus();
-        return false;
-      }
-      // email required
-      var Alamat = $("#Alamat").val();
-      if (Alamat == "") {
-        $("#error").fadeIn().text("Alamat required");
-        $("#Alamat").focus();
-        return false;
-      }
-      // mobile number required
-      var Nomor = $("#Nomor").val();
-      if (Nomor == "") {
-        $("#error").fadeIn().text("Nomor required");
-        $("#Nomor").focus();
-        return false;
-      }
+            // Merangkum semua data dalam satu variabel
+            var listdata = head + thead + markup + footer;
+            const list = (listdata);
 
-      var Lahir = $("#Lahir").val();
-      if (Lahir == "") {
-        $("#error").fadeIn().text("Tanggal Lahir required");
-        $("#Lahir").focus();
-        return false;
-      }
+            // Menampilkan Data table ke Variabel
+            $showData.html(list);
+        }
+        )};
+      });
+</script>
 
-      var motivasi = $("#motivasi").val();
-      if (motivasi == "") {
-        $("#error").fadeIn().text("motivasi required");
-        $("#motivasi").focus();
-        return false;
-      }
-      // ajax
-      $.ajax({
-        type: "POST",
-        url: "proses.php",
-        data: $(this).serialize(), // get all form field value in serialize form
-        success: function () {
-          $(document).scrollTop($(document).height());
+  <script >
+    $(document).ready(function($){
+// // hide messages 
+// $("#error").hide();
+// $("#show_message").hide();
+// on submit...
+$('#form').submit(function(e){
+e.preventDefault();
+// $("#error").hide();
+//name required
+var NamaDepan = $("NamaDepan").val();
+if(NamaDepan == ""){
+$("#error").fadeIn().text("NamaDepan required.");
+$("NamaDepan").focus();
+return false;
+}
+// NamaBelakang required
+var NamaBelakang = $("NamaBelakang").val();
+if(NamaBelakang == ""){
+$("#error").fadeIn().text("NamaBelakang required");
+$("NamaBelakang").focus();
+return false;
+}
+// Alamat number required
+var Alamat = $("Alamat").val();
+if(Alamat == ""){
+$("#error").fadeIn().text("Alamat required");
+$("Alamat").focus();
+return false;
+}
+var Nomor = $("Nomor").val();
+if(Nomor == ""){
+$("#error").fadeIn().text("Nomor required");
+$("Nomor").focus();
+return false;
+}
+var Lahir = $("Lahir").val();
+if(Lahir == ""){
+$("#error").fadeIn().text("Lahir required");
+$("Lahir").focus();
+return false;
+}
+var motivasi = $("motivasi").val();
+if(motivasi == ""){
+$("#error").fadeIn().text("motivasi required");
+$("motivasi").focus();
+return false;
+}
+
+// ajax
+$.ajax({
+type:"POST",
+url: "proses.php",
+data: $(this).serialize(), // get all form field value in serialize form
+success: function(){
+  $(document).scrollTop($(document).height());
           $("#NamaDepan").val('');
           $("#NamaBelakang").val('');
           $("#Alamat").val('');
           $("#Nomor").val('');
           $("#Lahir").val('');
           $("#motivasi").val('');
-          const $showData = $('#show-data');
+  const $showData = $('#show-data');
 
-          $.getJSON('http://localhost/baitulhtml/json.php', (respon) => {
+$showData.text('Loading the JSON file.');
+
+// Ambil Data JSON
+$.getJSON('json.php', (respon) => {
+    // console.log(respon.code);
+    // console.log(respon.status);
+
+    // Mengatur Ulang Format Dari JSON Menjadi HTML
+    const head = `<br><table id="tabelnya" class="table table-bordered ">`
+    const thead = `<thead><tr><th>Nama</th><th>Alamat</th><th>Nomor</th><th>Tanggal Lahir</th></th><th>Motivasi</th></tr></thead><tbody>`
+    const markup = respon
+        .map(item => `
+    <tr data-id="${item.id}">
+  <td>${item.id}. ${item.NamaDepan} ${item.NamaBelakang}</td>
+  <td>${item.Alamat}</td>
+  <td>${item.Nomor}</td>
+  <td>${item.Lahir}</td>
+  <td>${item.Motivasi}</td>
+ 
+  <td>
+        <button class="btn btn-danger hapus" id="hapus" data-id="${item.id}">HAPUS</button>
+  </td>
+    </tr>
+    `)
+        .join('');
+    const footer = `</tbody></table>`
+
+    // Merangkum semua data dalam satu variabel
+    var listdata = head + thead + markup + footer;
+    const list = (listdata);
+
+    // Menampilkan Data table ke Variabel
+    $showData.html(list);
+}
+)}
+});
+});
+});  
 
 
-            // mengatur ulang format respon dari json menjadi html
-            const head = '<li>0: Default</li>'
-            const markup = respon
-              .map(item =>
-                `
-        <tr>
-<td class="Nama" data-nomer="${item.id}">
-    ${item.id}. ${item.NamaDepan} ${item.NamaBelakang}: 
-    </td>
-<td class="align-text-bottom" data-nomer="${item.id}">
-    ${item.Alamat}
-<td class="Nomor" data-nomer="${item.id}">
-    ${item.Nomor}
-    </td>
-<td class="TanggalLahir" data-nomer="${item.id}">
-    ${item.Lahir}
-    </td>
-<td class="Motivasi" data-nomer="${item.id}">
-    ${item.Motivasi}
-    <td>
-      <button class="btn btn-danger rounded-3" data-id="<?php echo $result['id']; ?>">Hapus</button>
-
-</td>
-     </tr>
-     `)
-              .join('');
-
-            const list = $('<ul/>').html(`<table class="table table-striped"> <thead><tr>
-      <th>Nama</th>
-      <th>Alamat</th>
-      <th>Nomor HP</th>
-      <th>Tanggal Lahir</th>
-      <th>Motivasi</th>
-      <th>HAPUS DATA</th>
-     `+ markup + ` </tr></thead>  </table>`);
-            $showData.html(list);
-          });
-        }
-      });
-    });
-    return false;
-  });
 </script>
 
 <script>
-  $(document).ready(() => {
+     $(document).ready(function(){
 
+// Delete 
+$('#hapus').click(function(){
+  var el = this;
+ 
+  // Delete id
+  var deleteid = $(this).data('nomer');
 
-    const $showData = $('#show-data');
+  var confirmalert = confirm("Are you sure?");
+  if (confirmalert == true) {
+     // AJAX Request
+     $.ajax({
+       url: 'delete.php',
+       type: 'POST',
+       data: { item.id },
+       success: function(response){
 
-$.getJSON('http://localhost/baitulhtml/json.php', (respon) => {
+         if(response == 1){
+     // Remove row from HTML Table
+     $(el).closest('tr').css('background','tomato');
+     $(el).closest('tr').fadeOut(800,function(){
+        $(this).remove();
+     });
+         }else{
+     alert('Invalid ID.');
+         }
 
+       }
+     });
+  }
 
-  // mengatur ulang format respon dari json menjadi html
-  const head = '<li>0: Default</li>'
-  const markup = respon
-    .map(item =>
-      `
-<tr>
-<td class="Nama" data-nomer="${item.id}">
-${item.id}. ${item.NamaDepan} ${item.NamaBelakang}: 
-</td>
-<td class="align-text-bottom" data-nomer="${item.id}">
-${item.Alamat}
-<td class="Nomor" data-nomer="${item.id}">
-${item.Nomor}
-</td>
-<td class="TanggalLahir" data-nomer="${item.id}">
-${item.Lahir}
-</td>
-<td class="Motivasi" data-nomer="${item.id}">
-${item.Motivasi}
-</td>
-<td> <button class="btn btn-danger rounded-3" id="hapus" data-id="<?php echo $result['id']; ?>">Hapus</button>
+});
 
-                        </td>
-</tr>
-`)
-    .join('');
-
-  const list = $('<ul/>').html(`<table class="table table-striped"> <thead><tr>
-<th>Nama</th>
-<th>Alamat</th>
-<th>Nomor HP</th>
-<th>Tanggal Lahir</th>
-<th>Motivasi</th>
-<th>HAPUS DATA</th>
-`+ markup + ` </tr></thead>  </table>`);
-  $showData.html(list);
-    });
-  });
+});
 </script>
-<script>
-  
-  $('.hapus').on('click', (event) => {
-                // console.log($(event.target).data("id"));
-                var hapus = $(event.target).data("id");
-                // console.log(hapus);
-                $.ajax({
-                            url: 'delete.php',
-                            method: 'POST',
-                            data: {
-                                id: hapus
-                            },
-                          }
-                )};
-  )
-</script>
-
-
 
 </html>
