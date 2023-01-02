@@ -136,7 +136,7 @@ showTable();
         $showData.text('Loading the JSON file.');
 
         // Ambil Data JSON
-        $.getJSON('json.php', (respon) => {
+        $.getJSON('http://localhost/baitulhtml/json.php', (respon) => {
             // console.log(respon.code);
             // console.log(respon.status);
 
@@ -161,18 +161,44 @@ showTable();
             const footer = `</tbody></table>`
 
             // Merangkum semua data dalam satu variabel
-            var listdata = head + thead + markup + footer;
-            const list = (listdata);
+            var list = head + thead + markup + footer;
+            
 
             // Menampilkan Data table ke Variabel
             $showData.html(list);
+
+            $(".hapus").click(function(){
+         var id = $(this).data("id");
+         console.log(id); 
+            $.ajax({
+              type: 'GET',
+               url: 'delete.php?id='+ id,             
+               success: function(data){
+                   showTable();
+               }
+            });
+         
+      });
         }
         )};
       });
-</script>
+
+      // $(".hapus").click(function(){
+      //    var id = $(this).data("id");
+      //    console.log(id); 
+      //       // $.ajax({
+      //       //   type: 'GET',
+      //       //    url: 'delete.php?id='+ id,             
+      //       //    success: function(data){
+      //       //       // showTable();
+      //       //    }
+      //       // });
+         
+      // });
+      </script>
 
   <script >
-    $(document).ready(function($){
+    $(document).ready(function(){
 // // hide messages 
 // $("#error").hide();
 // $("#show_message").hide();
@@ -272,6 +298,19 @@ $.getJSON('json.php', (respon) => {
 )}
 });
 });
+
+$(".hapus").click(function(){
+         var id = $(this).data("id");
+         console.log(id); 
+            // $.ajax({
+            //   type: 'GET',
+            //    url: 'delete.php?id='+ id,             
+            //    success: function(data){
+            //       // showTable();
+            //    }
+            // });
+         
+      });
 });  
 
 
@@ -279,40 +318,8 @@ $.getJSON('json.php', (respon) => {
 
 <script>
      $(document).ready(function(){
-
-// Delete 
-$('#hapus').click(function(){
-  var el = this;
- 
-  // Delete id
-  var deleteid = $(this).data('nomer');
-
-  var confirmalert = confirm("Are you sure?");
-  if (confirmalert == true) {
-     // AJAX Request
-     $.ajax({
-       url: 'delete.php',
-       type: 'POST',
-       data: { item.id },
-       success: function(response){
-
-         if(response == 1){
-     // Remove row from HTML Table
-     $(el).closest('tr').css('background','tomato');
-     $(el).closest('tr').fadeOut(800,function(){
-        $(this).remove();
-     });
-         }else{
-     alert('Invalid ID.');
-         }
-
-       }
-     });
-  }
-
-});
-
-});
+      
+  });
 </script>
 
 </html>
